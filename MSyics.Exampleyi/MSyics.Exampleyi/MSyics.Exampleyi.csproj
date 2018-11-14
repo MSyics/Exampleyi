@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>MSyics</Authors>
+    <Company>MSyics</Company>
+    <Copyright>Copyright (c) 2018 MSyics</Copyright>
+    <PackageLicenseUrl>https://github.com/MSyics/Exampleyi/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/MSyics/Exampleyi</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MSyics/Exampleyi</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Traceyi" Version="2.5.0" />
+  </ItemGroup>
+
+</Project>
