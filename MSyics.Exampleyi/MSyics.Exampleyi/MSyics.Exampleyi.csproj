@@ -9,6 +9,7 @@
     <PackageProjectUrl>https://github.com/MSyics/Exampleyi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MSyics/Exampleyi</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Exampleyi</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

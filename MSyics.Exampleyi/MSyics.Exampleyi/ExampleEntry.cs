@@ -1,38 +1,32 @@
 ﻿using MSyics.Traceyi;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MSyics.Exampleyi
+public abstract class ExampleEntry
 {
-    abstract class ExampleEntry
+    public ExampleEntry()
     {
-        public ExampleEntry()
-        {
-            Traceable.Add(TraceConfig);
-        }
+        Traceable.Add(TraceConfig);
+    }
 
-        virtual protected string TraceConfig => "Traceyi.json";
-        protected Tracer Tracer { get; } = Traceable.Get();
-        private List<Example> Examples { get; } = new List<Example>();
+    virtual protected string TraceConfig => "Traceyi.json";
+    protected Tracer Tracer { get; } = Traceable.Get();
+    private List<Example> Examples { get; } = new List<Example>();
 
-        public ExampleEntry Add<T>() where T : Example, new()
-        {
-            Examples.Add(new T());
-            return this;
-        }
+    public ExampleEntry Add<T>() where T : Example, new()
+    {
+        Examples.Add(new T());
+        return this;
+    }
 
-        public void Test()
+    public void Test()
+    {
+        foreach (var item in Examples)
         {
-            foreach (var item in Examples)
+            using (Tracer.Scope(item.Name))
             {
-                using (Tracer.Scope(item.Name))
-                {
-                    item.Test();
-                }
+                item.Test();
             }
-            Traceable.Shutdown();
         }
+        Traceable.Shutdown();
     }
 }
