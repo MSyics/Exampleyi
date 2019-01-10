@@ -4,15 +4,21 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>MSyics</Authors>
     <Company>MSyics</Company>
-    <Copyright>Copyright (c) 2018 MSyics</Copyright>
+    <Copyright>Copyright (c) 2019 MSyics</Copyright>
     <PackageLicenseUrl>https://github.com/MSyics/Exampleyi/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/MSyics/Exampleyi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MSyics/Exampleyi</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Exampleyi</PackageId>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
-    <Version>1.0.1</Version>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.0.0</Version>
+    <PackageTags>Example</PackageTags>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
