@@ -3,7 +3,7 @@
 /// <summary>
 /// 登録した実例を実行します。
 /// </summary>
-public sealed class ExampleAggregator
+public class ExampleAggregator
 {
     /// <summary>
     /// Example オブジェクトの一覧を取得します。
