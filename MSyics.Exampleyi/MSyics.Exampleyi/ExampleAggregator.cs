@@ -1,5 +1,4 @@
-﻿using MSyics.Traceyi;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 /// <summary>
 /// 登録した実例を実行します。
@@ -7,22 +6,26 @@ using System.Collections.Generic;
 public sealed class ExampleAggregator
 {
     /// <summary>
-    /// トレーサーオブジェクトを取得します。
-    /// </summary>
-    private Tracer Tracer { get; } = Traceable.Get();
-
-    /// <summary>
     /// Example オブジェクトの一覧を取得します。
     /// </summary>
-    private List<Example> Examples { get; } = new List<Example>();
+    private List<IExample> Examples { get; } = new List<IExample>();
 
     /// <summary>
     /// Example オブジェクトを登録します。
     /// </summary>
     /// <typeparam name="T">登録する Example オブジェクトの型</typeparam>
-    public ExampleAggregator Add<T>() where T : Example, new()
+    public ExampleAggregator Add<T>() where T : IExample, new()
     {
         Examples.Add(new T());
+        return this;
+    }
+
+    /// <summary>
+    /// Example オブジェクトを登録します。
+    /// </summary>
+    public ExampleAggregator Add(IExample examle)
+    {
+        Examples.Add(examle);
         return this;
     }
 
@@ -31,19 +34,9 @@ public sealed class ExampleAggregator
     /// </summary>
     public void Show()
     {
-        try
+        foreach (var item in Examples)
         {
-            using (Tracer.Scope())
-            {
-                foreach (var item in Examples)
-                {
-                    item.Show();
-                }
-            }
-        }
-        finally
-        {
-            Traceable.Shutdown();
+            item.Show();
         }
     }
 }
