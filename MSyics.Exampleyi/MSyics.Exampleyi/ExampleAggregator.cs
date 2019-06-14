@@ -34,9 +34,17 @@ public class ExampleAggregator
     /// </summary>
     public void Show()
     {
-        foreach (var item in Examples)
+        foreach (var example in Examples)
         {
-            item.Show();
+            try
+            {
+                example.Setup();
+                example.Show();
+            }
+            finally
+            {
+                example.Teardown();
+            }
         }
     }
 }
