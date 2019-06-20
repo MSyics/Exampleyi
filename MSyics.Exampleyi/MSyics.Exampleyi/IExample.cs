@@ -1,4 +1,5 @@
-﻿/// <summary>
+﻿using System.Threading.Tasks;
+/// <summary>
 /// 実例を示します。
 /// </summary>
 public interface IExample
@@ -12,6 +13,11 @@ public interface IExample
     /// 実例を示します。
     /// </summary>
     void Show();
+
+    /// <summary>
+    /// 実例を示します。
+    /// </summary>
+    Task ShowAsync();
 
     /// <summary>
     /// 実例を示す前の処理を行います。

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 /// <summary>
 /// 登録した実例を実行します。
@@ -40,6 +41,25 @@ public class ExampleAggregator
             {
                 example.Setup();
                 example.Show();
+            }
+            finally
+            {
+                example.Teardown();
+            }
+        }
+    }
+
+    /// <summary>
+    /// 実例を示します。
+    /// </summary>
+    public async Task ShowAsync()
+    {
+        foreach (var example in Examples)
+        {
+            try
+            {
+                example.Setup();
+                await example.ShowAsync();
             }
             finally
             {
