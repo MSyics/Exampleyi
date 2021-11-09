@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-/// <summary>
+﻿/// <summary>
 /// 登録した実例を実行します。
 /// </summary>
 public class ExampleAggregator

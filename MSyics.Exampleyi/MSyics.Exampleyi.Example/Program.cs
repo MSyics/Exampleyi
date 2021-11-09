@@ -1,40 +1,36 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿namespace MSyics.Exampleyi.Example;
 
-namespace MSyics.Exampleyi.Example
+class Program : ExampleAggregator
 {
-    class Program : ExampleAggregator
+    static async Task Main()
     {
-        static async Task Main(string[] args)
-        {
-            await new Program()
-                .Add<AsyncExample>()
-                .ShowAsync();
-        }
+        await new Program().
+            Add<AsyncExample>().
+            ShowAsync();
+    }
+}
+
+class AsyncExample : IExample
+{
+    public string Name => nameof(AsyncExample);
+
+    public void Setup()
+    {
+        Console.WriteLine("Setup!");
     }
 
-    class AsyncExample : IExample
+    public void Show()
     {
-        public string Name => nameof(AsyncExample);
+        Console.WriteLine("Show!");
+    }
 
-        public void Setup()
-        {
-            Console.WriteLine("Setup!");
-        }
+    public Task ShowAsync()
+    {
+        return Task.Run(() => Console.WriteLine("ShowAsync!"));
+    }
 
-        public void Show()
-        {
-            Console.WriteLine("Show!");
-        }
-
-        public Task ShowAsync()
-        {
-            return Task.Run(() => Console.WriteLine("ShowAsync!"));
-        }
-
-        public void Teardown()
-        {
-            Console.WriteLine("Teardown!");
-        }
+    public void Teardown()
+    {
+        Console.WriteLine("Teardown!");
     }
 }
